@@ -1,3 +1,796 @@
+commit 7cff267002485fd0abca98d12b0024e061f4ba51
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 26 19:31:14 2023 -0400
+
+    remove duplicates
+
+commit 928cdb81d43dfd337c82917182d2914d9c9d0915
+Merge: a330a9f 39fed05
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 26 19:29:55 2023 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 39fed058f4734029b303fac4ea9a1b11f652fab4
+Merge: 92a6ecc 99355c6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 26 19:27:41 2023 -0400
+
+    Merge pull request #140 from monsieuremre/patch-3
+    
+    New lines in default permission config
+
+commit a330a9fd75314931639e7e873adc31c5cc65d555
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 26 19:20:21 2023 -0400
+
+    refactor permission-lockdown
+
+commit 8bf5ff82be706599f33228ecd6df42be0dc29f39
+Merge: 1123d23 92a6ecc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 26 19:15:04 2023 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 92a6ecc40a4d3bd4d8f3cec7dd9b1334c72399dc
+Merge: ca9603a 91c4452
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 26 19:13:34 2023 -0400
+
+    Merge pull request #141 from monsieuremre/patch-4
+    
+    New permission-lockdown
+
+commit 1123d23114201988ac3f5f50ab6e74a5307d3d52
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 26 18:45:07 2023 -0400
+
+    remount-secure: disable debugging to save space in initrd
+
+commit 91c445244c47c163e2466f8c4dff710eda20c337
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Thu Oct 26 19:41:07 2023 +0000
+
+    actually we do it once indeed
+
+commit 88f396264ca9d072e4e5de4e1acaee54f3b39749
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Thu Oct 26 19:35:59 2023 +0000
+
+    avoiding /etc/passwd
+
+commit b5ba03247a5b5bb1f4e010130e4a575ad1397117
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Thu Oct 26 19:31:25 2023 +0000
+
+    readability
+
+commit f487752ba1b469eb0b2f85657e2ee0860f58496b
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Thu Oct 26 19:30:58 2023 +0000
+
+    not limiting ourselves. we do not do this not just once.
+
+commit 88cd5a905d8aa0f6033ac4ba72903fbad4a90b4b
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Thu Oct 26 19:25:24 2023 +0000
+
+    strip unnecessary
+
+commit d9f10c221a2b6794f0a3c5bcd1c15e2a4f352751
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Thu Oct 26 18:17:50 2023 +0000
+
+    new permission-lockdown
+
+commit 99355c616974d167e3a5424d63cd56b1f64f0eaf
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Thu Oct 26 17:45:28 2023 +0000
+
+    new lines 30_default.conf
+
+commit ca9603af1713ff37392662c9d1b4251052e7b983
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 26 12:23:48 2023 -0400
+
+    bumped changelog version
+
+commit 5f4222c1c3d7fa057b31bba7b0b5c2e83c92a7be
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 26 12:20:48 2023 -0400
+
+    enable SUID Disabler and Permission Hardener by default
+    
+    https://www.kicksecure.com/wiki/SUID_Disabler_and_Permission_Hardener
+    
+    https://forums.whonix.org/t/suid-disabler-and-permission-hardener/7706
+
+commit e5d989af5ac2899985c48d60311856fb86e0ddeb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 26 12:04:13 2023 -0400
+
+    comment
+
+commit 8557e0963ed6159f7f6c816ad4e009cc7323a760
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 25 17:55:37 2023 -0400
+
+    bumped changelog version
+
+commit b7e2d49f5f3f49fab2e1c0647f10bda1921e0a80
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 25 17:41:05 2023 -0400
+
+    comment
+
+commit 5d71217e597aa3366658524ec5395c9f76dd527b
+Merge: 6a22351 a2f811a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 25 17:40:13 2023 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 6a22351d298e475ecae22bb99249a308b294ff9a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 25 17:30:07 2023 -0400
+
+    renamed:    usr/lib/sysctl.d/30_security-misc.conf -> usr/lib/sysctl.d/990-security-misc.conf
+
+commit b7c52800f4c16b1573e372089704a68fd47c5906
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 25 17:28:43 2023 -0400
+
+    renamed:    etc/sysctl.d/30_security-misc.conf -> usr/lib/sysctl.d/30_security-misc.conf
+    renamed:    etc/sysctl.d/30_security-misc_kexec-disable.conf -> usr/lib/sysctl.d/30_security-misc_kexec-disable.conf
+    renamed:    etc/sysctl.d/30_silent-kernel-printk.conf -> usr/lib/sysctl.d/30_silent-kernel-printk.conf
+
+commit a2f811aff0cb4e73c3975093012c223127495707
+Merge: 3317332 ee6716e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Oct 25 17:26:46 2023 -0400
+
+    Merge pull request #135 from monsieuremre/kernel-fix
+    
+    Kernel hardening fix
+
+commit ee6716e178806912da08b671ae31504ed2f3ac56
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Tue Oct 24 20:43:10 2023 +0000
+
+    security-misc.maintscript
+
+commit 3317332cb431115f81d832ba974181c74427c884
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 24 05:51:11 2023 -0400
+
+    bumped changelog version
+
+commit 42c802cd1eca3d2586abde871e4842cdf83490c4
+Merge: f3b40f1 5320c11
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 24 05:30:15 2023 -0400
+
+    Merge remote-tracking branch 'github-kicksecure/master'
+
+commit 5320c11f3f92b66b7dcab7ca1f67fcba2de5deba
+Merge: f3b40f1 f0857fd
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Oct 24 05:22:33 2023 -0400
+
+    Merge pull request #134 from monsieuremre/patch-1
+    
+    Fix double mount issue for /var/log and /var/tmp
+
+commit 1f489719efb37492b9c040ba4e332e8dd70fde1f
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Mon Oct 23 16:38:58 2023 +0000
+
+    rename
+
+commit 9dda6f69a7df792966005f9c6feb057483cd9ea4
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Mon Oct 23 16:38:40 2023 +0000
+
+    more rename
+
+commit 89381fe7abcc2f4418b95c3eb290c975bf6d612c
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Mon Oct 23 16:38:23 2023 +0000
+
+    rename
+
+commit f0857fd5608525115bd8a96c2f75368263f6f830
+Author: monsieuremre <130907164+monsieuremre@users.noreply.github.com>
+Date:   Mon Oct 23 15:33:05 2023 +0000
+
+    Fix double mount issue for /var/log and /var/tmp
+    
+    Mounting var with bind and mounting a subdirectory causes /var/tmp and /var/log bind mounted twice each. can be checked with lsblk. When we bind mount var only after having mounted the subdirectories, everything is mounted only one.
+
+commit f3b40f12cb4bad0f2f00d4ba2dec59fb315c0798
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 19:23:22 2023 -0400
+
+    bumped changelog version
+
+commit d2e8a6dad3b94d574cb9c043303160b06893ab97
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 19:21:51 2023 -0400
+
+    debugging
+
+commit e7aafd64d4418d43426b310653861f9024a54255
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 19:16:12 2023 -0400
+
+    refactoring
+
+commit ee15f749bb4e68350498e52e8505bed43c98cbaf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 16:54:58 2023 -0400
+
+    bumped changelog version
+
+commit d521662d04892fb6d5477fa4450fb5488892a87a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 16:49:36 2023 -0400
+
+    comment
+
+commit 0e80acf38d430784fbb779f4f10c81bfe8a3813f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 16:45:10 2023 -0400
+
+    fix
+
+commit a1c3b87fcee07496af4b42e387b46488b58b73a0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 16:29:08 2023 -0400
+
+    bumped changelog version
+
+commit f6d1346e2bde51cd70bc60246c0bfba923c00c3d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 16:22:08 2023 -0400
+
+    fix
+
+commit 9a649ddd091b116c9091f3fa582d411b5186375a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 16:16:40 2023 -0400
+
+    bumped changelog version
+
+commit 11382881b56556741fad5f0291ccb57a24e9c617
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 16:12:26 2023 -0400
+
+    comments
+
+commit 5182d7502b34a95fd751c69c4bc3f01d5f5e02b9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 16:08:21 2023 -0400
+
+    improve remount-secure
+
+commit 555d83792df9aa599ae9e0e7c41af49b0601c1c1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:44:47 2023 -0400
+
+    bumped changelog version
+
+commit a88c0a3ad2d83fe72612faf97866e255c5527384
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:44:30 2023 -0400
+
+    fix
+
+commit 316282952f7d2470c89f268beea01b8bac9bb4bb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:40:59 2023 -0400
+
+    bumped changelog version
+
+commit a7629b98cf4e7f86bab07c2b75fa712adcd63ee5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:40:49 2023 -0400
+
+    fix
+
+commit 7112eac3be014938f757e0c0def74bb04dc72d2f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:37:21 2023 -0400
+
+    output
+
+commit f80b5fe3767502f6890bdfb7bc32a602c94828d6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:36:16 2023 -0400
+
+    fix
+
+commit ce0babce215dc4ec08101cff5e0d25ad6ec87e70
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:35:03 2023 -0400
+
+    comment
+
+commit fa0804b7ae46ecfc1e9e82ca83342c9d456aa9c3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:33:21 2023 -0400
+
+    bumped changelog version
+
+commit 70cbe4daaa5cd857c49f2f9b9241f24e2867ab5a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:33:11 2023 -0400
+
+    fix
+
+commit 36f2acb93f65958b27bae030f1d2bd66a278e073
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:28:04 2023 -0400
+
+    bumped changelog version
+
+commit 9b9e9ce1c0feb4ca854189754c47ca826eef1c32
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:27:01 2023 -0400
+
+    fix
+
+commit 3731716a497c233127bff3febbe22d5cf088aad8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:14:22 2023 -0400
+
+    fix
+
+commit eec87a0508a6242430a1f0b8ad341f4c3ea43059
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:11:26 2023 -0400
+
+    fix
+
+commit f3286cf440992661ba85b5c7e41b92ffaca62cf3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:10:21 2023 -0400
+
+    fix
+
+commit eb90d38d8ca6d6292dbb8013bb9bca8ec26f4792
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 15:05:33 2023 -0400
+
+    fix
+
+commit f44020973897d98fdc21ced748ad64106979829e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 14:46:42 2023 -0400
+
+    bumped changelog version
+
+commit 7f03c2b13742e583e426c91ff4e111b6c0e7da43
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 14:45:45 2023 -0400
+
+    fix
+
+commit c85db586cadbe781704e62405a76e43650046d2c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 14:44:58 2023 -0400
+
+    improve
+
+commit 7c0ea4324aa1713f365f7352a3e4db1b703d9750
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 14:39:52 2023 -0400
+
+    fix
+
+commit b29b626b41545fd49b67631820ae40d0fe000f22
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 14:30:28 2023 -0400
+
+    bumped changelog version
+
+commit 6198ae317c4d8cbd06d95d5e2a585892f455cab6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 14:29:02 2023 -0400
+
+    fix
+
+commit 245fad09868c2d84bee66d65ecca32704786919b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 14:00:06 2023 -0400
+
+    fix
+
+commit 619f1705e13232680f38bc630f19f2ace32f48ad
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 13:58:55 2023 -0400
+
+    output
+
+commit 52fa7db0874be85a3db296499ab76f84a5f518db
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 13:57:38 2023 -0400
+
+    output
+
+commit 8a592c2e371de1136d566e707ba56ce89309230a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 13:56:17 2023 -0400
+
+    fix remountsecure kernel parameter logic
+
+commit 3c183294cd8a402418eafc1e657c6524be49c487
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 13:31:55 2023 -0400
+
+    bumped changelog version
+
+commit e689f38ad0ba9727d482dbab25ea5d88e67a8edf
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 13:31:44 2023 -0400
+
+    todo
+
+commit 6675a2e93194ea15daeb22bee707cf49563f69fe
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 13:30:50 2023 -0400
+
+    fix
+
+commit 4288e10554f854d6dd9be092ddbf6a62686b1549
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 13:25:31 2023 -0400
+
+    fix, rework remount-secure kernel parameters parsing
+
+commit b0181af099a2bc20a6d8cc20e6e27371ecc50bf1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 13:12:25 2023 -0400
+
+    fix
+
+commit 28cb53341d48ece9e042caea03e7159b0f93c2ee
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 13:11:44 2023 -0400
+
+    remount-secure dracut module: improve output
+
+commit f70f36e6cfead0038075d715e430e15aedae459f
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 12:55:41 2023 -0400
+
+    bumped changelog version
+
+commit 479ab61a1d0c91d26c2cd200d97b39b2b786e073
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 12:55:20 2023 -0400
+
+    remove no longer required remount-service systemd unit
+
+commit 84ca0ac8a0b6a72a28e030081299b402749b9348
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 12:54:25 2023 -0400
+
+    improve remount-secure
+
+commit 1696c37251fe6158118ac3a694c2e11439de5c46
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 11:28:18 2023 -0400
+
+    bumped changelog version
+
+commit e7d30955e88b0a052e9159c11f4c1e1a47dadb49
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 11:28:08 2023 -0400
+
+    debugging
+
+commit 975a017dec26f671b7869ba4ad94b3a4d2faf999
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 11:13:05 2023 -0400
+
+    bumped changelog version
+
+commit 8eb4607a0e8c3db10f64e4ed5a02e87fd3ee8903
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 11:12:54 2023 -0400
+
+    improve
+
+commit f1da0ce7461fab2eeb421daa886ddd9856c9fd52
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 11:11:10 2023 -0400
+
+    fix
+
+commit 26826e8398c4d3feed07e8e3e095a87bbde9907a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 11:06:34 2023 -0400
+
+    fix
+
+commit a423b85f81e0c066271ad7db78902ccddbeabb5a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:50:30 2023 -0400
+
+    bumped changelog version
+
+commit 233fa4625bb60ef65c707d28e7c8a51ef5a1d66e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:49:53 2023 -0400
+
+    output
+
+commit 3ebe8cf4de5c77f26f93ac40bdc596c0c38451f5
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:41:42 2023 -0400
+
+    refactoring
+
+commit 24d2e26397e8f1e8e350fb60206ab1c5b597cbe6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:40:19 2023 -0400
+
+    no longer reproducible
+
+commit fcba70df2e4e6c71fd29852d6f0b20f80e2e2d5e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:38:48 2023 -0400
+
+    refactoring
+
+commit a05bd3dd0e7319807fa7ea523407ec82ce8aa39c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:37:02 2023 -0400
+
+    /home last because most likely to fail
+
+commit 41077c94fbc1a0c90ee870292fe82e16a70b52f1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:32:24 2023 -0400
+
+    improve remount-secure
+
+commit ef69e512bd2e2eba0e292470bfef6336216e2605
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:25:57 2023 -0400
+
+    refactoring
+
+commit d5cb7ecec9d10069e2e37a2f88680dff6d3f6eb6
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:22:21 2023 -0400
+
+    use findmnt
+
+commit 1120d0652ddead556801958973d61502b75f9fc7
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:16:53 2023 -0400
+
+    bumped changelog version
+
+commit 45ce0ff74d8f42d6a424e0742989008403891f8a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:16:43 2023 -0400
+
+    debugging
+
+commit b81a991731e912fa0f7d4ca59b0531bafb02a25a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:15:11 2023 -0400
+
+    fix
+
+commit 292a5c3a8a37bc9dd807913bd76826e57e978b67
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:11:31 2023 -0400
+
+    fix
+
+commit bb57b1a289cc64cc5b2ab5518c151df5355a9f29
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:10:51 2023 -0400
+
+    fix
+
+commit 4f6f45fb3902f6c49d01b5ccb33a4e24804cd02a
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:01:54 2023 -0400
+
+    bumped changelog version
+
+commit 181a6424796b1cafc87a8d74aad197135381a389
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 10:01:38 2023 -0400
+
+    root check
+
+commit 84fd41931ce3ba4d6e3785dc8052ee14ce62b80e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 09:44:17 2023 -0400
+
+    /var/run -> /run
+
+commit 33d97a2560fe4aaab24f90057e825802541a408b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 09:39:54 2023 -0400
+
+    improve output of remount-secure dracut module
+
+commit c409e3221e179437ed0b162dde1e72cd116ba795
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 09:36:03 2023 -0400
+
+    implement remount-secure
+
+commit f472ce690ae350085d40cfd5ec46084dc559a51d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 08:57:35 2023 -0400
+
+    comments
+
+commit 90f2b5e11c341c38bb0b11db603ceeba28e14b1c
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 08:51:37 2023 -0400
+
+    code simplification
+
+commit 167683ce763e97838e62950f00313b63d7c968b0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 08:50:57 2023 -0400
+
+    code simplification
+
+commit 05e9accf64a3a6bfa24aac7aaa62620f814b05d1
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 08:12:30 2023 -0400
+
+    bumped changelog version
+
+commit e065f85c8809d04a9a4c041dd8b9b81bacd04e24
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 08:10:48 2023 -0400
+
+    add remount-secure dracut module
+
+commit f0ee470ecd0fc37125165dd6a5cefb47339b14b4
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 07:51:05 2023 -0400
+
+    comment
+
+commit e257f2a3806ba7013e8e47005fde1385044bc8d9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 07:50:14 2023 -0400
+
+    remount-secure:
+    no longer use /usr/libexec/helper-scripts/pre.bsh as not simple with dracut
+
+commit 27b3ba8bdf2556066a4be02cd1be9a4451a591b2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 07:06:00 2023 -0400
+
+    bumped changelog version
+
+commit ed11c68ac64c1ec4eaa590dbb56734d450c89b04
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 06:51:52 2023 -0400
+
+    move remount-secure to /usr/bin/remount-secure to make it easier to manually run
+
+commit 6f4bf57ff2bc878f03a50d91a5db0afaf897d70e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 06:48:56 2023 -0400
+
+    `remount-secure`: add support for `--force`; output
+
+commit 6dec5cb1d6b841bc6ea92986d6567902109f5ed0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 06:32:19 2023 -0400
+
+    debugging
+
+commit bc768aa196a08218aac0b6ef1c4ca013f2034122
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 06:31:57 2023 -0400
+
+    output
+
+commit c069c73109b45fbb8fa230ad4f90f4252db730f2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 06:29:38 2023 -0400
+
+    refactoring
+
+commit abc35927345e14bbe4b9f13d205a648ce7a8bd8d
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 06:23:48 2023 -0400
+
+    remount-secure: stricter error handling
+
+commit 59a5fea25d0b0c39a6e7b3b11f9242ebe5eaa462
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 05:41:56 2023 -0400
+
+    documentation
+
+commit ac63b0eb3db3d168908459fecd6b3275cce015bc
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 22 05:41:11 2023 -0400
+
+    remove duplicate
+
+commit ef3f1575733c668f652326cdb4f4fba8c71bf0ed
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 21 14:19:24 2023 -0400
+
+    bumped changelog version
+
+commit ae2c1c5a7a02a5f3f6a8bcd4a90fdc9e3b512e62
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 21 14:18:50 2023 -0400
+
+    fix xession environment variable
+
+commit 43375fa1f4d32f04907edf1297fef737342b49ea
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 21 12:34:59 2023 -0400
+
+    bumped changelog version
+
+commit d543825d85a5d84274c21cd85db6df777948606e
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sat Oct 21 12:24:59 2023 -0400
+
+    comments
+
+commit dd43ab634d9ab0a59234798e1b14ba99099c65c9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 13 15:22:58 2023 -0400
+
+    bumped changelog version
+
+commit 645ee814e4f3dc330dd6fb24ec4fac0e278c4f42
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Oct 13 15:22:48 2023 -0400
+
+    fix
+
+commit 13a4f37e50805a0e51b8f63808e166318e39a074
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 12 12:51:37 2023 -0400
+
+    bumped changelog version
+
+commit 2d4524108445829d7ac80e828e9a1442cf038a6b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 12 11:37:01 2023 -0400
+
+    avoid duplicate environment variables
+
+commit e96e6aa38e29888a64fa35f85becc1596118a812
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 12 10:43:40 2023 -0400
+
+    bumped changelog version
+
+commit fa820e897895eda93011a0f2bbd915ffffcb1459
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Thu Oct 12 10:40:27 2023 -0400
+
+    refactoring environment variables loading mechanism
+
+commit 358e4226f1b3db32e560e4bbe1c663828eac7059
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Mon Jul 17 11:48:35 2023 -0400
+
+    bumped changelog version
+
 commit 81ad786dfcdd416056c6ae8a9d02231bda6fcbde
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Jul 17 11:19:07 2023 -0400
