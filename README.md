@@ -42,14 +42,20 @@ arbitrary code execution in kernel mode.
 * Prevents unintentional writes to attacker-controlled files.
 
 * Prevents common symlink and hardlink TOCTOU races.
-
+<!--
 * Restricts the SysRq key so it can only be used for shutdowns and the
 Secure Attention Key.
+-->
+* Disables SysRq completely.
 
 * The kernel is only allowed to swap if it is absolutely necessary. This
 prevents writing potentially sensitive contents of memory to disk.
 
 * TCP timestamps are disabled as it can allow detecting the system time.
+
+* Enforces the logging of martian packets, those with a source address which is blatantly wrong.
+
+* Set coredump file name based on core_pattern value instead of the default of naming it 'core'.
 
 ### mmap ASLR
 
@@ -90,7 +96,27 @@ TLB invalidation so devices will never be able to access stale data contents.
 
 * Distrust the 'randomly' generated CPU and bootloader seeds.
 
-### Disables and blacklists kernel modules
+### Kernel Modules
+#### Kernel Module Signature Verification
+
+Not yet due to issues:
+
+* https://forums.whonix.org/t/enforce-kernel-module-software-signature-verification-module-signing-disallow-kernel-module-loading-by-default/7880/64
+* https://github.com/dell/dkms/issues/359
+
+See:
+
+* `/etc/default/grub.d/40_only_allow_signed_modules.cfg`
+
+#### Disables the loading of new modules to the kernel after the fact
+
+Not yet due to issues:
+
+* https://github.com/Kicksecure/security-misc/pull/152
+
+A systemd service dynamically sets the kernel parameter ```modules_disabled``` to 1, preventing new modules from being loaded. Since this isn't configured directly within systemctl, it does not break the loading of legitimate and necessary modules for the user, like drivers etc., given they are plugged in on startup.
+
+#### Disables and blacklists kernel modules
 
 Certain kernel modules are disabled and blacklisted by default to reduce attack surface via the
 `/etc/modprobe.d/30_security-misc.conf` configuration file.
@@ -98,9 +124,6 @@ Certain kernel modules are disabled and blacklisted by default to reduce attack 
 * Deactivates Netfilter's connection tracking helper - this module
 increases kernel attack surface by enabling superfluous functionality
 such as IRC parsing in the kernel. Hence, this feature is disabled.
-
-* Bluetooth is disabled to reduce attack surface. Bluetooth has
-a lengthy history of security concerns.
 
 * Thunderbolt and numerous FireWire kernel modules are also disabled as they are
 often vulnerable to DMA attacks.
@@ -204,6 +227,26 @@ dropping RST packets for sockets in the time-wait state.
 * Reverse path filtering is enabled to prevent IP spoofing and mitigate
 vulnerabilities such as CVE-2019-14899.
 
+* Unlike version 4, IPv6 addresses can provide information not only about the originating network, but also the originating device.
+  We prevent this from happening by enabling the respective privacy extensions for IPv6.
+
+* In addition, we deny the capability to track the originating device in the network at all, by using randomized MAC addresses per connection per default.
+
+See:
+
+* `/usr/lib/NetworkManager/conf.d/80_ipv6-privacy.conf`
+* `/usr/lib/NetworkManager/conf.d/80_randomize-mac.conf`
+* `/usr/lib/systemd/networkd.conf.d/80_ipv6-privacy-extensions.conf`
+
+## Network & Bluetooth hardening
+
+* Bluetooth is left enabled but users are highly discouraged from ever turning it on, due to its history of numerous security vulnerabilities. Unlike the default settings, we start the system with bluetooth turned off. We also enforce private addresses and strict timeout settings for discoverability and visibility.
+
+See:
+
+* `/etc/bluetooth/30_security-misc.conf`
+* https://github.com/Kicksecure/security-misc/pull/145
+
 ## Entropy collection improvements
 
 * The `jitterentropy_rng` kernel module is loaded as early as possible
@@ -218,22 +261,13 @@ audit, may contain weaknesses or a backdoor. For references, see:
 
 ## Restrictive mount options
 
+A systemd service is triggered on boot to remount all sensitive partitions and directories with significantly more secure hardened mount options.
+Since this would require manual tuning for a given specific system, we handle it by creating a very solid configuration file for that very system on package install.
+
 Not enabled by default yet. In development. Help welcome.
 
-https://forums.whonix.org/t/re-mount-home-and-other-with-noexec-and-nosuid-among-other-useful-mount-options-for-better-security/
-
-`/home`, `/tmp`, `/dev/shm` and `/run` are remounted with the `nosuid` and `nodev`
-mount options to prevent execution of setuid or setgid binaries and creation of
-devices on those filesystems.
-
-Optionally, they can also be mounted with `noexec` to prevent execution of any
-binary. To opt-in to applying `noexec`, execute `touch /etc/noexec` as root
-and reboot.
-
-To disable this, execute `touch /etc/remount-disable` as root.
-
-Alternatively, file `/usr/local/etc/remount-disable` or `/usr/local/etc/noexec`
-could be used.
+* https://github.com/Kicksecure/security-misc/pull/152
+* https://forums.whonix.org/t/re-mount-home-and-other-with-noexec-and-nosuid-among-other-useful-mount-options-for-better-security/
 
 ## Root access restrictions
 
@@ -314,6 +348,8 @@ See:
 
 ### Strong user account separation
 
+#### Permission Lockdown
+
 Read, write and execute access for "others" are removed during package
 installation, upgrade or PAM `mkhomedir` for all users who have home
 folders in `/home` by running, for example:
@@ -333,8 +369,48 @@ See:
 * `/usr/libexec/security-misc/permission-lockdown`
 * `/usr/share/pam-configs/mkhomedir-security-misc`
 
+#### umask
+
+Default `umask` is set to `027` for files created by non-root users
+such as for example user `user`.
+
+This is doing using pam module `pam_mkhomedir.so umask=027`.
+
+This means, files created by non-root users cannot be read by other
+non-root users by default. While Permission Lockdown already protects
+the `/home` folder, this protects other folders such as `/tmp`.
+
+`group` read permissions are not removed.
+This is unnecessary due to Debian's use of User Private Groups (UPGs).
+See also: https://wiki.debian.org/UserPrivateGroups
+
+Default `umask` is unchanged for root, because then configuration files
+created in `/etc` by the system administrator would be unreadable by
+"others" and break applications. Examples include `/etc/firefox-esr` and
+`/etc/thunderbird`.
+
+See:
+
+* `/usr/share/pam-configs/umask-security-misc`
+
 ### SUID / SGID removal and permission hardening
 
+#### SUID / SGID removal
+
+A systemd service removes SUID / SGID bits from non-essential binaries as
+these are often used in privilege escalation attacks.
+
+#### File permission hardening
+
+Various file permissions are reset with more secure and hardened defaults. These include but are not limited to:
+
+* Limiting ```/home``` and ```/root``` to the root only.
+* Limiting crontab to root as well as all the configuration files for cron.
+* Limiting the configuration for cups and ssh.
+* Protecting the information of sudoers from others.
+* Protecting various system relevant files and modules.
+
+<!--
 Not enabled by default yet.
 
 A systemd service removes SUID / SGID bits from non-essential binaries as
@@ -362,7 +438,7 @@ See:
 * `/usr/bin/pkexec.security-misc`
 * https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=860040
 * https://forums.whonix.org/t/cannot-use-pkexec/8129
-
+-->
 ## Application-specific hardening
 
 * Enables "`apt-get --error-on=any`" which makes apt exit non-zero for
@@ -372,14 +448,31 @@ See:
 * Deactivates previews in Nautilus -
 `/usr/share/glib-2.0/schemas/30_security-misc.gschema.override`.
 * Deactivates thumbnails in Thunar.
-* Displays domain names in punycode (`network.IDN_show_punycode`) in
-Thunderbird to prevent IDN homograph attacks (a form of phishing).
+* Thunderbird is hardened with the following options:
+    * Displays domain names in punycode to prevent IDN homograph attacks (a form of phishing).
+    * Strips email client information for sent email headers.
+    * Stripts user time information from sent email headers by replacing the originating time zone with UTC and rounding the timestamp to the nearest minute.
+    * Disables scripting when viewing pdf files.
+    * Disables implicit outgoing connections.
+    * Disables all and any kind of telemetry.
 * Security and privacy enhancements for gnupg's config file
 `/etc/skel/.gnupg/gpg.conf`. See also:
+    * https://raw.github.com/ioerror/torbirdy/master/gpg.conf
+    * https://github.com/ioerror/torbirdy/pull/11
 
-https://raw.github.com/ioerror/torbirdy/master/gpg.conf
+### project scope of application-specific hardening
 
-https://github.com/ioerror/torbirdy/pull/11
+Before sending pull requests to harden arbitrary applications, please note the scope of security-misc is limited to default installed applications in Kicksecure, Whonix. This includes:
+
+* Thunderbird, VLC Media Player, KeepassXC
+* Debian Specific System Components (APT, DPKG)
+* System Services (NetworkManager IPv6 privacy options, MAC address randomization)
+* Actually used development utilities such as `git`.
+
+It will not be possible to review and merge "1500" settings profiles for arbitrary applications outside of this context.
+
+Discussion:
+https://github.com/Kicksecure/security-misc/issues/154
 
 ## Opt-in hardening
 
